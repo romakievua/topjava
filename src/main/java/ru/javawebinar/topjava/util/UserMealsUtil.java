@@ -50,7 +50,8 @@ public class UserMealsUtil {
             LocalTime userMealTime = userMeal.getDateTime().toLocalTime();
             int userMealCalories = userMeal.getCalories();
             boolean isExceed = false;
-            if (userMealTime.isAfter(startTime) && userMealTime.isBefore(endTime)) { // date before startTime and endTime
+
+            if (TimeUtil.isBetween(userMealTime, startTime, endTime)) {
                 if (map.containsKey(userMealDate) && map.get(userMealDate) > caloriesPerDay)
                     isExceed = true;
                 result.add(new UserMealWithExceed(userMealDateTime, userMeal.getDescription(), userMealCalories, isExceed));
