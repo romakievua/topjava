@@ -23,9 +23,11 @@
             <%--</c:otherwise>--%>
         <%--</c:choose>--%>
         <tr bgcolor=${mealWithExceed.isExceed() ? "red" : "green"}>
-            <td>${mealWithExceed.getDateTime()}</td>
+            <td>${mealWithExceed.getDateTimeString()}</td>
             <td>${mealWithExceed.getDescription()}</td>
             <td>${mealWithExceed.getCalories()}</td>
+            <td><a href="?action=update&id=${mealWithExceed.getId()}">update</a></td>
+            <td><a href="?action=delete&id=${mealWithExceed.getId()}">delete</a></td>
         </tr>
     </c:forEach>
 </table>
